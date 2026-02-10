@@ -9,3 +9,9 @@ gem "rackup"
 gem "faraday", "~> 2.0"
 gem "faraday-retry"
 gem "dotenv"
+
+group :test do
+  gem "minitest", "~> 5.0"
+  gem "rake"
+  gem "webmock"
+end

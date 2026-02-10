@@ -54,6 +54,14 @@ end
 
 The MCP transport returns mixed-case headers (`Content-Type`) but Rack 3 requires lowercase. The `DowncaseHeaders` middleware in `config.ru` normalizes them.
 
+## Testing
+
+- **Run tests**: `bundle exec rake test`
+- **Framework**: Minitest + WebMock
+- Tests live in `test/` — client tests, tool tests, middleware tests
+- WebMock stubs all HTTP calls; no real API requests in tests
+- Tool tests use `Minitest::Mock` for the Basecamp client
+
 ## Basecamp API
 
 - Base URL: `https://3.basecampapi.com/{account_id}`
