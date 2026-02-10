@@ -65,3 +65,4 @@ The MCP transport returns mixed-case headers (`Content-Type`) but Rack 3 require
 
 - `BASECAMP_ACCESS_TOKEN` — required
 - `BASECAMP_ACCOUNT_ID` — required
+- `MCP_AUTH_TOKEN` — optional; when set, all MCP requests must include `Authorization: Bearer <token>`. Uses `Rack::Utils.secure_compare` to prevent timing attacks. Middleware: `TokenAuth` in `config.ru`.

@@ -23,9 +23,14 @@ Edit `.env` with your Basecamp credentials:
 ```
 BASECAMP_ACCESS_TOKEN=your_access_token_here
 BASECAMP_ACCOUNT_ID=your_account_id_here
+MCP_AUTH_TOKEN=optional_secret_token
 ```
 
 You can obtain an access token via [Basecamp's OAuth 2 flow](https://github.com/basecamp/api/blob/master/sections/authentication.md) or by creating a personal integration.
+
+### Authentication
+
+Set `MCP_AUTH_TOKEN` to require a Bearer token on all MCP requests. When set, clients must include an `Authorization: Bearer <token>` header. When unset, the MCP endpoint is open (suitable for local development).
 
 ## Running
 
@@ -83,11 +88,16 @@ To use with Claude Code or other MCP clients, add to your MCP config:
 {
   "mcpServers": {
     "basecamp": {
-      "url": "http://localhost:9292/"
+      "url": "http://localhost:9292/",
+      "headers": {
+        "Authorization": "Bearer YOUR_MCP_AUTH_TOKEN"
+      }
     }
   }
 }
 ```
+
+Omit the `headers` field if `MCP_AUTH_TOKEN` is not set.
 
 ## Project Structure
 
