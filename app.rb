@@ -22,7 +22,8 @@ required_vars.each do |var|
 end
 
 if oauth_mode
-  TOKEN_STORE = Basecamp::TokenStore.new
+  token_path = ENV.fetch("BASECAMP_TOKEN_PATH", Basecamp::TokenStore::DEFAULT_PATH)
+  TOKEN_STORE = Basecamp::TokenStore.new(token_file_path: token_path)
   if ENV["BASECAMP_ACCESS_TOKEN"] && !ENV["BASECAMP_ACCESS_TOKEN"].empty?
     TOKEN_STORE.seed!(access_token: ENV["BASECAMP_ACCESS_TOKEN"])
   end

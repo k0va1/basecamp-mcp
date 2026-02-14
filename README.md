@@ -191,7 +191,13 @@ services:
       - BASECAMP_CLIENT_ID=${BASECAMP_CLIENT_ID:-}
       - BASECAMP_CLIENT_SECRET=${BASECAMP_CLIENT_SECRET:-}
       - BASECAMP_REDIRECT_URI=${BASECAMP_REDIRECT_URI:-http://localhost:9292/oauth/callback}
+      - BASECAMP_TOKEN_PATH=/app/data/.basecamp_tokens.json
+    volumes:
+      - basecamp-tokens:/app/data
     restart: unless-stopped
+
+volumes:
+  basecamp-tokens:
 ```
 
 ## Verification
