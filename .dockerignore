@@ -1,4 +1,15 @@
 .git
+.github
 .claude
 .env
+.env.*
+.basecamp_tokens.json
+.standard.yml
+.release-please-manifest.json
 test
+tmp
+CHANGELOG.md
+CLAUDE.md
+README.md
+Makefile
+release-please-config.json
