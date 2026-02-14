@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/k0va1/basecamp-mcp/compare/v0.1.0...v0.1.1) (2026-02-14)
+
+
+### Features
+
+* add configurable token path for Docker volume persistence ([c1fb4fd](https://github.com/k0va1/basecamp-mcp/commit/c1fb4fd42ca6aafd242b1b14ff5b0392d0f03f07))
+
+
+### Bug Fixes
+
+* allow any host in Sinatra apps for reverse proxy support ([7ea6f66](https://github.com/k0va1/basecamp-mcp/commit/7ea6f661440f51de9ff43cedc91697da74445e76))
+
 ## [0.1.0](https://github.com/k0va1/basecamp-mcp/compare/v0.0.1...v0.1.0) (2026-02-14)
 
 
