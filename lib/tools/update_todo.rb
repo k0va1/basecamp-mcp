@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class UpdateTodo < BaseTool
     tool_name "update_todo"
@@ -17,7 +15,7 @@ module Tools
     )
 
     class << self
-      def call(project_id:, todo_id:, content: nil, description: nil, assignee_ids: nil, due_on: nil, server_context:)
+      def call(project_id:, todo_id:, server_context:, content: nil, description: nil, assignee_ids: nil, due_on: nil)
         client = basecamp_client(server_context)
         body = {}
         body[:content] = content if content

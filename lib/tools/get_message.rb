@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class GetMessage < BaseTool
     tool_name "get_message"

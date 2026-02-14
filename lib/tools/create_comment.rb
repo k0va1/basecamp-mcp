@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class CreateComment < BaseTool
     tool_name "create_comment"

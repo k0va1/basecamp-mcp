@@ -23,7 +23,7 @@ Rack app with two mount points:
 3. Implement `def call(..., server_context:)` as a class method
 4. Use `basecamp_client(server_context)` to get the API client
 5. Return `text_response(data)` or `error_response(msg)`
-6. Add `require_relative` in `app.rb` and add to the `TOOLS` array
+6. Tools are auto-discovered via `BaseTool.subclasses` — no manual registration needed
 
 ```ruby
 class MyTool < BaseTool
@@ -34,7 +34,7 @@ class MyTool < BaseTool
   class << self
     def call(id:, server_context:)
       client = basecamp_client(server_context)
-      result = client.get("/some/path/#{id}.json")
+      result = client.get("some/path/#{id}.json")
       text_response(result)
     rescue Basecamp::Error => e
       error_response(e.message)
@@ -89,3 +89,4 @@ When `BASECAMP_CLIENT_ID` and `BASECAMP_CLIENT_SECRET` are both set, the server 
 ## Conventions
 
 - Use Conventional Commits format for all commit messages (e.g., `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`)
+- Do not use `# frozen_string_literal: true` — it is unnecessary in Ruby 3.x

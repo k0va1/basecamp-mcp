@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "dotenv/load"
 require "mcp"
 
@@ -14,7 +12,7 @@ Dir[File.join(__dir__, "lib/tools", "*.rb")].each { |f| require f }
 TOOLS = Tools::BaseTool.subclasses.freeze
 
 oauth_mode = ENV["BASECAMP_CLIENT_ID"] && !ENV["BASECAMP_CLIENT_ID"].empty? &&
-             ENV["BASECAMP_CLIENT_SECRET"] && !ENV["BASECAMP_CLIENT_SECRET"].empty?
+  ENV["BASECAMP_CLIENT_SECRET"] && !ENV["BASECAMP_CLIENT_SECRET"].empty?
 
 required_vars = ["BASECAMP_ACCOUNT_ID"]
 required_vars << "BASECAMP_ACCESS_TOKEN" unless oauth_mode

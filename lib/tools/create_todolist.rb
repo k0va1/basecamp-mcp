@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class CreateTodolist < BaseTool
     tool_name "create_todolist"
@@ -15,7 +13,7 @@ module Tools
     )
 
     class << self
-      def call(project_id:, todoset_id:, name:, description: nil, server_context:)
+      def call(project_id:, todoset_id:, name:, server_context:, description: nil)
         client = basecamp_client(server_context)
         body = {name: name}
         body[:description] = description if description

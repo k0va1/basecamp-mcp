@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Rack 3 requires lowercase header names, but the MCP transport
 # may return mixed-case headers. This middleware normalizes them.
 class DowncaseHeaders

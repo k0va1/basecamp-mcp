@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class CompleteTodo < BaseTool
     tool_name "complete_todo"

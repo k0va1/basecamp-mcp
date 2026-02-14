@@ -1,2 +1,5 @@
 .env
 .basecamp_tokens.json
+/.bundle/
+/.claude/
+/tmp/

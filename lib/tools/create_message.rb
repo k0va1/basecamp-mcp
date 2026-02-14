@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class CreateMessage < BaseTool
     tool_name "create_message"
@@ -16,7 +14,7 @@ module Tools
     )
 
     class << self
-      def call(project_id:, message_board_id:, subject:, content:, category_id: nil, server_context:)
+      def call(project_id:, message_board_id:, subject:, content:, server_context:, category_id: nil)
         client = basecamp_client(server_context)
         body = {subject: subject, content: content}
         body[:category_id] = category_id if category_id

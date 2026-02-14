@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class UpdateTodolist < BaseTool
     tool_name "update_todolist"

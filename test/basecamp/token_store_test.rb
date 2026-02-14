@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "minitest/autorun"
 require "tmpdir"
 require_relative "../../lib/basecamp/token_store"

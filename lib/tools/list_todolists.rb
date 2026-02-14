@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class ListTodolists < BaseTool
     tool_name "list_todolists"
@@ -14,7 +12,7 @@ module Tools
     )
 
     class << self
-      def call(project_id:, todoset_id:, status: nil, server_context:)
+      def call(project_id:, todoset_id:, server_context:, status: nil)
         client = basecamp_client(server_context)
         path = "buckets/#{project_id}/todosets/#{todoset_id}/todolists.json"
         path += "?status=#{status}" if status

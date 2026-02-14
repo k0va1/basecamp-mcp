@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 ENV["BASECAMP_ACCESS_TOKEN"] ||= "test-token"
 ENV["BASECAMP_ACCOUNT_ID"] ||= "12345"
 

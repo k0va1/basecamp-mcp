@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Validates Bearer token on incoming requests when MCP_AUTH_TOKEN is set.
 # Returns 401 if the token is missing or incorrect.
 class TokenAuth

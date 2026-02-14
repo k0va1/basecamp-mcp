@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class ListPeople < BaseTool
     tool_name "list_people"

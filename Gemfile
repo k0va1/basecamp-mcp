@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
 gem "mcp", "~> 0.6.0"
@@ -9,6 +7,10 @@ gem "rackup"
 gem "faraday", "~> 2.0"
 gem "faraday-retry"
 gem "dotenv"
+
+group :development do
+  gem "standard"
+end
 
 group :test do
   gem "minitest", "~> 5.0"

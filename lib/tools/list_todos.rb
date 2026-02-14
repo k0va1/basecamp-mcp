@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class ListTodos < BaseTool
     tool_name "list_todos"

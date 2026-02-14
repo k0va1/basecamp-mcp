@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Tools
   class ListProjects < BaseTool
     tool_name "list_projects"
