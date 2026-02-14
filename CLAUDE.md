@@ -74,3 +74,18 @@ The MCP transport returns mixed-case headers (`Content-Type`) but Rack 3 require
 - `BASECAMP_ACCESS_TOKEN` — required
 - `BASECAMP_ACCOUNT_ID` — required
 - `MCP_AUTH_TOKEN` — optional; when set, all MCP requests must include `Authorization: Bearer <token>`. Uses `Rack::Utils.secure_compare` to prevent timing attacks. Middleware: `TokenAuth` in `config.ru`.
+- `BASECAMP_CLIENT_ID` — optional; enables OAuth2 token refresh when set with `BASECAMP_CLIENT_SECRET`
+- `BASECAMP_CLIENT_SECRET` — optional; OAuth2 client secret
+
+### OAuth2 Token Refresh
+
+When `BASECAMP_CLIENT_ID` and `BASECAMP_CLIENT_SECRET` are both set, the server runs in **OAuth mode**:
+- Tokens are persisted to `.basecamp_tokens.json` (gitignored)
+- On first run, the token store is seeded with `BASECAMP_ACCESS_TOKEN`
+- Tokens are proactively refreshed 5 minutes before expiry
+- On 401 errors, a reactive refresh + retry is attempted
+- If no OAuth vars are set, the server uses the static access token (original behavior)
+
+## Conventions
+
+- Use Conventional Commits format for all commit messages (e.g., `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`)

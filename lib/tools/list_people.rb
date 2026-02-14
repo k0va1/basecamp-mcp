@@ -9,7 +9,7 @@ module Tools
     class << self
       def call(server_context:)
         client = basecamp_client(server_context)
-        people = client.get("/people.json")
+        people = client.get("people.json")
         text_response(people)
       rescue Basecamp::Error => e
         error_response(e.message)

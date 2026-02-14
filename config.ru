@@ -12,6 +12,7 @@ end
 
 require_relative "lib/middleware/token_auth"
 require_relative "lib/middleware/downcase_headers"
+require_relative "lib/middleware/request_logger"
 
 mcp_transport = TRANSPORT
 
@@ -25,7 +26,12 @@ app = Rack::Builder.new do
     run HealthApp
   end
 
+  map "/oauth" do
+    run OAuthApp
+  end
+
   map "/" do
+    use RequestLogger if ENV["DEBUG"]
     use TokenAuth, token: ENV["MCP_AUTH_TOKEN"]
     use DowncaseHeaders
     run mcp_app

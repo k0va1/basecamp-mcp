@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Tools
-  class ListTodos < BaseTool
-    tool_name "list_todos"
-    description "List all to-dos in a to-do list"
+  class GetTodolist < BaseTool
+    tool_name "get_todolist"
+    description "Get details of a specific to-do list"
     input_schema(
       properties: {
         project_id: {type: "integer", description: "The project ID"},
@@ -15,8 +15,8 @@ module Tools
     class << self
       def call(project_id:, todolist_id:, server_context:)
         client = basecamp_client(server_context)
-        todos = client.get("buckets/#{project_id}/todolists/#{todolist_id}/todos.json")
-        text_response(todos)
+        todolist = client.get("buckets/#{project_id}/todolists/#{todolist_id}.json")
+        text_response(todolist)
       rescue Basecamp::Error => e
         error_response(e.message)
       end

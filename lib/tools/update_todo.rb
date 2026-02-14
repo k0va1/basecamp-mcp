@@ -25,7 +25,7 @@ module Tools
         body[:assignee_ids] = assignee_ids if assignee_ids
         body[:due_on] = due_on if due_on
 
-        todo = client.put("/buckets/#{project_id}/todos/#{todo_id}.json", body)
+        todo = client.put("buckets/#{project_id}/todos/#{todo_id}.json", body)
         text_response(todo)
       rescue Basecamp::Error => e
         error_response(e.message)

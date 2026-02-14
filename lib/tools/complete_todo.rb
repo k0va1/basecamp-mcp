@@ -15,7 +15,7 @@ module Tools
     class << self
       def call(project_id:, todo_id:, server_context:)
         client = basecamp_client(server_context)
-        client.post("/buckets/#{project_id}/todos/#{todo_id}/completion.json")
+        client.post("buckets/#{project_id}/todos/#{todo_id}/completion.json")
         text_response({status: "completed", todo_id: todo_id})
       rescue Basecamp::Error => e
         error_response(e.message)

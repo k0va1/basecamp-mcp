@@ -15,7 +15,7 @@ module Tools
     class << self
       def call(project_id:, message_id:, server_context:)
         client = basecamp_client(server_context)
-        message = client.get("/buckets/#{project_id}/messages/#{message_id}.json")
+        message = client.get("buckets/#{project_id}/messages/#{message_id}.json")
         text_response(message)
       rescue Basecamp::Error => e
         error_response(e.message)

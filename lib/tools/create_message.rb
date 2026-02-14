@@ -21,7 +21,7 @@ module Tools
         body = {subject: subject, content: content}
         body[:category_id] = category_id if category_id
 
-        message = client.post("/buckets/#{project_id}/message_boards/#{message_board_id}/messages.json", body)
+        message = client.post("buckets/#{project_id}/message_boards/#{message_board_id}/messages.json", body)
         text_response(message)
       rescue Basecamp::Error => e
         error_response(e.message)
