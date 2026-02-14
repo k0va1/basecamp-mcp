@@ -3,6 +3,8 @@ require "faraday"
 require "json"
 
 class OAuthApp < Sinatra::Base
+  set :host_authorization, permitted: :any
+
   AUTHORIZE_URL = "https://launchpad.37signals.com/authorization/new"
   TOKEN_URL = "https://launchpad.37signals.com/authorization/token"
 

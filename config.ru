@@ -2,6 +2,8 @@ require "sinatra/base"
 require_relative "app"
 
 class HealthApp < Sinatra::Base
+  set :host_authorization, permitted: :any
+
   get "/" do
     content_type :json
     {status: "ok"}.to_json
